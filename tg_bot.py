@@ -1,6 +1,4 @@
 import os
-import json
-import telegram
 import logging
 from telegram.ext import Updater, MessageHandler, Filters
 from dotenv import load_dotenv
