@@ -1,14 +1,15 @@
 import os
+import json
 import telegram
 import logging
 from telegram.ext import Updater, MessageHandler, Filters
 from dotenv import load_dotenv
 import dialogflow_v2 as dialogflow
 
-
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('DialogFlowBot')
+
 
 def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
@@ -31,13 +32,16 @@ def detect_intent_texts(project_id, session_id, text, language_code):
         session=session, query_input=query_input)
     return response.query_result.fulfillment_text
 
+
 def main():
     load_dotenv()
-    telegram_access_token = os.getenv('TELEGRAM_TOKEN_ACCESS')
-    updater = Updater(telegram_access_token, use_context=True)
+    telegram_token_bot = os.getenv('TELEGRAM_TOKEN_ACCESS')
+    telegram_token_log_bot = os.getenv('TELEGRAM_LOG_BOT_TOKEN')
+    updater = Updater(telegram_token_bot, use_context=True)
+    updater_log = Updater(telegram_token_log_bot, use_context=True)
 
     updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
-    updater.dispatcher.add_error_handler(error)
+    updater_log.dispatcher.add_error_handler(error)
     updater.start_polling()
     updater.idle()
 

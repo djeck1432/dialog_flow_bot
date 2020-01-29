@@ -1,4 +1,8 @@
 *venv
 *.env
 *.json
+*.pickle
+__pycache__/
+*.egg-info/
+*.egg
 *.idea
