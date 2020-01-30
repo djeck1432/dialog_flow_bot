@@ -58,3 +58,8 @@
 ```TELEGRAM_LOG_BOT_TOKEN```-токен от бота, куда будут приходить ```loggs```;<br>
 ```VK_TOKEN_ACCESS``` - токен от ```vkontakte```;<br>
 ```GOOGLE_APPLICATION_CREDENTIALS``` - ключи доступа к ```Google``` сервисам.
+
+
+## Пример работы бота 
+
+<img src='https://dvmn.org/filer/canonical/1569214094/323/'></img>
