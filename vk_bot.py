@@ -10,6 +10,7 @@ import logs
 
 vk_logger = logging.getLogger('vk_bot')
 
+
 def echo(event,vk):
     vk.messages.send(
         user_id=event.user_id,

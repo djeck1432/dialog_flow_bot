@@ -1,13 +1,15 @@
 import os
 import logging
-from telegram.ext import Updater, MessageHandler, Filters
+from telegram.ext import Updater, MessageHandler, Filters , CommandHandler
 from dotenv import load_dotenv
 import dialogflow_v2 as dialogflow
 import logs
 
-
-
 tg_logger = logging.getLogger('telegram')
+
+
+def start(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Здравствуйте")
 
 
 def echo(update, context):
@@ -29,16 +31,18 @@ def detect_intent_texts(project_id, session_id, text, language_code):
 
 
 def main():
+    load_dotenv()
+    telegram_token_bot = os.getenv('TELEGRAM_TOKEN_ACCESS')
+
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         level=logging.INFO)
     tg_logger.setLevel(logging.INFO)
     logs.main()
 
-    load_dotenv()
-    telegram_token_bot = os.getenv('TELEGRAM_TOKEN_ACCESS')
     updater = Updater(telegram_token_bot, use_context=True)
     tg_logger.info('Start telegram_bot')
     updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
+    updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.start_polling()
     updater.idle()
     tg_logger.info('Telegram bot was down')
