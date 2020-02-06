@@ -1,18 +1,14 @@
 import os
-import json
-import telegram
 import logging
 from telegram.ext import Updater, MessageHandler, Filters
 from dotenv import load_dotenv
 import dialogflow_v2 as dialogflow
-
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-logger = logging.getLogger('DialogFlowBot')
+import logs
 
 
-def error(update, context):
-    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
+tg_logger = logging.getLogger('telegram')
+
 
 
 def echo(update, context):
@@ -34,16 +30,19 @@ def detect_intent_texts(project_id, session_id, text, language_code):
 
 
 def main():
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        level=logging.INFO)
+    tg_logger.setLevel(logging.INFO)
+    logs.main()
+
     load_dotenv()
     telegram_token_bot = os.getenv('TELEGRAM_TOKEN_ACCESS')
-    telegram_token_log_bot = os.getenv('TELEGRAM_LOG_BOT_TOKEN')
     updater = Updater(telegram_token_bot, use_context=True)
-    updater_log = Updater(telegram_token_log_bot, use_context=True)
-
+    tg_logger.info('Start telegram_bot')
     updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
-    updater_log.dispatcher.add_error_handler(error)
     updater.start_polling()
     updater.idle()
+    tg_logger.info('bot was down')
 
 
 if __name__ == '__main__':

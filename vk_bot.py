@@ -1,11 +1,17 @@
 import os
+import logging
 from dotenv import load_dotenv
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 from random import randint
 import dialogflow_v2 as dialogflow
+import logs
+
+
+vk_logger = logging.getLogger('vk_bot')
 
 def echo(event,vk):
+    # vk_logger.info('start')
     vk.messages.send(
         user_id=event.user_id,
         message=detect_intent_texts('massive-sandbox-266519', '1234', event.text, 'ru'),
@@ -27,10 +33,16 @@ def detect_intent_texts(project_id, session_id, text, language_code):
 
 
 def main():
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        level=logging.INFO)
+    vk_logger.setLevel(logging.INFO)
+    logs.main()
+
     load_dotenv()
     vk_token = os.getenv('VK_TOKEN_ACCESS')
     vk_session = vk_api.VkApi(token=vk_token)
     vk = vk_session.get_api()
+    vk_logger.info('Start')
     longpoll = VkLongPoll(vk_session)
 
     for event in longpoll.listen():
@@ -38,6 +50,7 @@ def main():
             if detect_intent_texts('massive-sandbox-266519', '1234', event.text, 'ru') is not None:
                 echo(event, vk)
 
+    vk_logger.critical('bot was down')
 
 
 
