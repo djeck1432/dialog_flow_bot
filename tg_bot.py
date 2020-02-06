@@ -9,16 +9,6 @@ import logs
 
 tg_logger = logging.getLogger('telegram')
 
-def implicit():
-    from google.cloud import storage
-
-    # If you don't specify credentials when constructing the client, the
-    # client library will look for credentials in the environment.
-    storage_client = storage.Client()
-
-    # Make an authenticated API request
-    buckets = list(storage_client.list_buckets())
-    print(buckets)
 
 def echo(update, context):
     dialogflow_response = detect_intent_texts('massive-sandbox-266519', '1234', update.message.text, 'ru')
@@ -51,7 +41,7 @@ def main():
     updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
     updater.start_polling()
     updater.idle()
-    tg_logger.info('bot was down')
+    tg_logger.info('Telegram bot was down')
 
 
 if __name__ == '__main__':
