@@ -54,13 +54,14 @@
 Поздравляю, теперь ваш ```Bot``` работает постоянно, вне зависимости, включен ваш компьютер или нет.
 
 ### Переменые окружения 
+<a name='env'></a>
 ```TELEGRAM_TOKEN_ACCESS``` - токен от вашего чат-бота в ```telegram```;<br>
 ```TELEGRAM_LOG_BOT_TOKEN```-токен от бота, куда будут приходить ```loggs```;<br>
 ```VK_TOKEN_ACCESS``` - токен от ```vkontakte```;<br>
 ```GOOGLE_APPLICATION_CREDENTIALS``` - ключи доступа к ```Google``` сервисам.
 
 
-## Пример работы бота 
+### Пример работы бота 
 1)Названия ```TelegramBot``` - ```@DevmanLesson3_bot```;
 <br>
 2)Как работает ```VkontakteBot``` <a href='https://vk.com/club190053871'>здесь</a>;
@@ -68,3 +69,28 @@
 3)Чат бот с логами <a href='https://t.me/devman_log_bot'>здесь</a>;
 <br>
 <img src='https://dvmn.org/filer/canonical/1569214094/323/'></img>
+
+
+## Как обучить бота 
+
+1. Скачайте репозиторий на свой компьютер:
+```git clone https://github.com/djeck1432/dialog_flow_bot.git```
+<br>
+2. Откройте репозиторий: 
+<br>
+```cd dialog_flow_bot```
+<br>
+3. Установите все необходимые библиотеки:
+<br>
+```pip install -r requirements.txt```
+<br>
+4. Создайте фалй ```.env``` и задайте все переменные которые описаны <a href='#env'>здесь</a>
+<br>
+5. Создайте файл ```file.json``` в формате ```json```.
+<br>
+6. Вставте в созданый вами файл, обучащющие фразы/слова ответов/вопросов.
+<br>
+7. Запустите команду:
+<br>
+```python3 add_intend.py```
+
