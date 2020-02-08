@@ -61,5 +61,8 @@
 
 
 ## Пример работы бота 
-
+1)Как работает ```TelegramBot``` <a href=''>здесь</a>
+2)Как работает ```VkontakteBot``` <a href=''>здесь</a>
+3)Чат бот с логами <a href=''>здесь</a>
+<br>
 <img src='https://dvmn.org/filer/canonical/1569214094/323/'></img>
