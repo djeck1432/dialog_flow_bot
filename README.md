@@ -55,9 +55,9 @@
 <a name='env'></a>
 ### Переменые окружения 
 
-```TELEGRAM_TOKEN_ACCESS``` - токен от вашего чат-бота в ```telegram```;<br>
+```TELEGRAM_ACCESS_TOKEN``` - токен от вашего чат-бота в ```telegram```;<br>
 ```TELEGRAM_LOG_BOT_TOKEN```-токен от бота, куда будут приходить ```loggs```;<br>
-```VK_TOKEN_ACCESS``` - токен от ```vkontakte```;<br>
+```VK_ACCESS_TOKEN``` - токен от ```vkontakte```;<br>
 ```GOOGLE_APPLICATION_CREDENTIALS``` - ключи доступа к ```Google``` сервисам.
 
 
