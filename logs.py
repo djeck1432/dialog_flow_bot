@@ -2,34 +2,34 @@ import logging
 import os
 import telegram
 from dotenv import load_dotenv
+from tg_bot import tg_logger
+from vk_bot import vk_logger
 
 
 class TelegramLogsHandler(logging.Handler):
-    def __init__(self, telegram_log_access_token, telegram_log_chat_id):
-        logging.Handler.__init__(self)
-        self.telegram_access_token = telegram_log_access_token
-        self.telegram_log_chat_id = telegram_log_chat_id
-        self.bot_log = telegram.Bot(token=telegram_log_access_token )
+
+    def __init__(self, bot_log, log_chat_id_telegram):
+        super().__init__()
+        self.log_chat_id_telegram = log_chat_id_telegram
+        self.bot_log = bot_log
+
 
     def emit(self, record):
         log_entry = self.format(record)
-        return self.bot_log.send_message(chat_id=self.telegram_log_chat_id, text=log_entry)
-
+        self.bot_log.send_message(chat_id=self.log_chat_id_telegram, text=log_entry)
 
 def main():
     load_dotenv()
-    telegram_logs_token = os.getenv('TELEGRAM_LOG_BOT_TOKEN')
-    telegram_logs_chat_id = os.getenv('TELEGRAM_LOG_BOT_CHAT_ID')
-    bot = TelegramLogsHandler(telegram_logs_token,telegram_logs_chat_id)
+    logs_token_telegram = os.getenv('TOKEN_LOG_BOT_TELEGRAM')
+    log_chat_id_telegram = os.getenv('LOG_BOT_CHAT_ID_TELEGRAM')
+    bot_log = telegram.Bot(token=logs_token_telegram)
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         level=logging.INFO)
-
-    tg_logger = logging.getLogger('telegram')
-    tg_logger.addHandler(bot)
-
-    vk_logger = logging.getLogger('vk_bot')
-    vk_logger.addHandler(bot)
+    tg_logger.setLevel(logging.INFO)
+    tg_logger.addHandler(TelegramLogsHandler(bot_log,log_chat_id_telegram))
+    vk_logger.setLevel(logging.INFO)
+    vk_logger.addHandler(TelegramLogsHandler(bot_log,log_chat_id_telegram))
 
 
 if __name__ == '__main__':
