@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from dialogflow_response import detect_intent_texts
 import logs
 
-tg_logger = logging.getLogger('telegram')
+logger = logging.getLogger('bot_logs')
 
 
 def start(update, context):
@@ -19,20 +19,20 @@ def get_response(update, context):
 
 def main():
     load_dotenv()
-    token_bot_telegram = os.getenv('TOKEN_ACCESS_TELEGRAM')
+    telegram_bot_token = os.getenv('TELEGRAM_ACCESS_TOKEN')
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         level=logging.INFO)
-    tg_logger.setLevel(logging.INFO)
+    logger.setLevel(logging.INFO)
     logs.main()
 
-    updater = Updater(token_bot_telegram, use_context=True)
-    tg_logger.info('Start telegram_bot')
+    updater = Updater(telegram_bot_token, use_context=True)
+    logger.info('Start telegram_bot')
     updater.dispatcher.add_handler(MessageHandler(Filters.text, get_response))
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.start_polling()
     updater.idle()
-    tg_logger.info('Telegram bot was down')
+    logger.info('Telegram bot was down')
 
 
 if __name__ == '__main__':

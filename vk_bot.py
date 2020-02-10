@@ -8,7 +8,7 @@ from dialogflow_response import detect_intent_texts
 import logs
 
 
-vk_logger = logging.getLogger('vk_bot')
+logger = logging.getLogger('bot_logs')
 
 
 def get_response(event, vk):
@@ -22,14 +22,14 @@ def get_response(event, vk):
 def main():
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         level=logging.INFO)
-    vk_logger.setLevel(logging.INFO)
+    logger.setLevel(logging.INFO)
     logs.main()
 
     load_dotenv()
-    token_vk = os.getenv('TOKEN_ACCESS_VK')
-    vk_session = vk_api.VkApi(token=token_vk)
+    vk_token = os.getenv('VK_ACCESS_TOKEN')
+    vk_session = vk_api.VkApi(token=vk_token)
     vk = vk_session.get_api()
-    vk_logger.info('Start VK Bot')
+    logger.info('Start VK Bot')
     longpoll = VkLongPoll(vk_session)
 
     for event in longpoll.listen():
@@ -37,7 +37,7 @@ def main():
             if detect_intent_texts('massive-sandbox-266519', '1234', event.text, 'ru') is not None:
                 get_response(event, vk)
 
-    vk_logger.critical('Vk bot was down')
+    logger.critical('Vk bot was down')
 
 
 
