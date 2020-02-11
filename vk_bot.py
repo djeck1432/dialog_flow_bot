@@ -7,8 +7,7 @@ from random import randint
 from dialogflow_response import detect_intent_texts
 import logs
 
-
-logger = logging.getLogger('bot_logs')
+logger = logging.getLogger('vkontakte_logs')
 
 
 def get_response(event, vk):
@@ -20,13 +19,16 @@ def get_response(event, vk):
 
 
 def main():
+    load_dotenv()
+    vk_token = os.getenv('VK_ACCESS_TOKEN')
+    telegram_logs_token = os.getenv('TELEGRAM_LOG_BOT_TOKEN')
+    telegram_log_chat_id = os.getenv('TELEGRAM_LOG_BOT_CHAT_ID')
+
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         level=logging.INFO)
     logger.setLevel(logging.INFO)
-    logs.main()
+    logs.create_bot_handler(telegram_logs_token, telegram_log_chat_id)
 
-    load_dotenv()
-    vk_token = os.getenv('VK_ACCESS_TOKEN')
     vk_session = vk_api.VkApi(token=vk_token)
     vk = vk_session.get_api()
     logger.info('Start VK Bot')
@@ -38,8 +40,6 @@ def main():
                 get_response(event, vk)
 
     logger.critical('Vk bot was down')
-
-
 
 
 if __name__ == '__main__':
