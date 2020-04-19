@@ -54,9 +54,9 @@ Congratulations, now your `` Bot`` is constantly working.
 
 ## Environment variables  
 
-```TELEGRAM_ACCESS_TOKEN``` - token from your chat bot in ```telegram```;<br>
-```TELEGRAM_LOG_BOT_TOKEN```- token from the bot, where they will come ```loggs```;<br>
-```VK_ACCESS_TOKEN``` - token from ```vkontakte```;<br>
+```TELEGRAM_ACCESS_TOKEN``` - token from your chatbot in ```Telegram```;<br>
+```TELEGRAM_LOG_BOT_TOKEN```- token from the bot, where they will come ```logs```;<br>
+```VK_ACCESS_TOKEN``` - token from ```Vkontakte```;<br>
 ```GOOGLE_APPLICATION_CREDENTIALS``` - access keys to ```Google``` services.
 
 
@@ -65,7 +65,7 @@ Congratulations, now your `` Bot`` is constantly working.
 <br>
 2)How does it work ```VkontakteBot``` <a href='https://vk.com/club190053871'>here</a>;
 <br>
-3)Chat bot with logs <a href='https://t.me/devman_log_bot'>here</a>;
+3)Chatbot with logs <a href='https://t.me/devman_log_bot'>here</a>;
 <br>
 <img src='https://dvmn.org/filer/canonical/1569214094/323/'></img>
 
@@ -76,11 +76,11 @@ Congratulations, now your `` Bot`` is constantly working.
 ```git clone https://github.com/djeck1432/dialog_flow_bot.git```
 2. Open the repository: <br>
 ```cd dialog_flow_bot```
-3. Install all needed libraries:<br>
+3. Install all the needed libraries:<br>
 ```pip install -r requirements.txt```
 4. Create a file ```.env``` and set all the variables that are described <a href='#env'>here</a><br>
-5. Create a file ```file.json```in format ```json```.<br>
-6. Insert into the file you created, training phrases / words of answers / questions.<br>
+5. Create a file ```file.json``` in format ```JSON```.<br>
+6. Insert into the file you created, training phrases/words of answers/questions.<br>
 7. Run code:<br>
 ```python3 add_intent.py```
 
