@@ -78,7 +78,7 @@ Congratulations, now your `` Bot`` is constantly working.
 ```cd dialog_flow_bot```
 3. Install all needed libraries:<br>
 ```pip install -r requirements.txt```
-4. Create a file ```.env``` and set all the variables that are described<a href='#env'>here</a><br>
+4. Create a file ```.env``` and set all the variables that are described <a href='#env'>here</a><br>
 5. Create a file ```file.json```in format ```json```.<br>
 6. Insert into the file you created, training phrases / words of answers / questions.<br>
 7. Run code:<br>
