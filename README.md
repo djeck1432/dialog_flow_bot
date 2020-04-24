@@ -2,6 +2,15 @@
  These bots will simplify customer service by answering frequently asked questions. 
  Support service can breath a little easier now
 
+### Bot example
+<img src='https://dvmn.org/filer/canonical/1569214094/323/'></img>
+
+<ol>
+ <li>Name of TelegramBot - @DevmanLesson3_bot;</li>
+ <li>How does it work VkontakteBot <a href='https://vk.com/club190053871'>here</a>;</li>
+ <li>Chatbot with logs <a href='https://t.me/devman_log_bot'>here</a>;</li> 
+</ol>
+
 ## Instruction for running code on the server
 
 ### Registration and installation of Heroku
@@ -67,13 +76,6 @@ Congratulations, now your `Bot` is constantly working.
 `GOOGLE_APPLICATION_CREDENTIALS` - access keys to `Google` services.
 
 
-### Bot example
-<ol>
- <li>Name of `TelegramBot` - `@DevmanLesson3_bot`;</li>
- <li>How does it work `VkontakteBot` <a href='https://vk.com/club190053871'>here</a>;</li>
- <li>Chatbot with logs <a href='https://t.me/devman_log_bot'>here</a>;</li>
- <li><img src='https://dvmn.org/filer/canonical/1569214094/323/'></img></li>
-</ol>
 
 ### How to train a bot
 
