@@ -4,6 +4,42 @@
  <br>
  [link](https://t.me/dialogflow_example_bot)
  
+### Training phrases
+#### First intent
+ `How to get a job with you?`<br>
+ `How to work for you?`<br>
+ `How to work for you`<br>
+ `Is it possible to get a job with you?`<br>
+ `Can I work for you?`<br>
+ `I want to work as an editor for you`<br>
+ 
+ #### Second intent
+ `I can't sign in to my account`<br>
+ `Login failed`<br>
+ `Incorrect login or password`<br>
+ `How to recover your password`<br>
+ `Restore password`<br>
+ `Forgot login`<br>
+ `Login Problems`<br>
+ `I can not enter`<br>
+ `I do not remember the password`<br>
+ 
+ #### Third intent
+`How to demolish your account`<br>
+`Delete my articles`<br>
+`How to delete data about me`<br>
+`How to delete an account`<br>
+`Delete account`<br>
+`I want to delete my account`<br>
+
+#### Fourth intent
+`Is the contract already in force?`<br>
+`When do we sign the contract?`<br>
+`I am sending the results of the meeting`<br>
+`Late for a meeting`<br>
+`I will transfer money under the contract soon`<br>
+`When will you transfer money under the contract?`<br>
+`Where is the meeting?`<br>
 
 ### Bot example
 
