@@ -9,11 +9,11 @@ logger = logging.getLogger('telegram_logs')
 
 
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Здравствуйте")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Hello")
 
 
 def get_response(update, context):
-    dialogflow_response = detect_intent_texts('massive-sandbox-266519', '1234', update.message.text, 'ru')
+    dialogflow_response = detect_intent_texts('massive-sandbox-266519', '1234', update.message.text, 'en')
     update.message.reply_text(dialogflow_response)
 
 
