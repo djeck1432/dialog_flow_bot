@@ -1,87 +1,101 @@
-# Чат-боты для ```Telegram``` и ```Vkontakte```
-Данные боты упростят работу с клиентами, отвечая на часто задаваемые вопросы.
-Теперь служба поддержки может вздохнуть немного.
+# Chat-bots for Telegram and Vkontakte
+ These bots will simplify customer service by answering frequently asked questions. 
+ Support service can breath a little easier now
 
-## Инструкция по запуску кода на сервере
-
-### Регистрация и установка Heroku
-
-Зарегистрируйтесь  на этом <a href='https://signup.heroku.com/dc'>сайте</a>.
-<br>
-Для работы через терминал, установите ```CLI``` для ```Heroku```, для этого
-откройте у себя на компьютере ```bash``` и в нем пропишите следующие команды: 
-<br>
-Для ```Linux``` -<br>
-```sudo snap install heroku --classic```
-<br>
-Для ```MacOs``` - <br>
-```brew install heroku/brew/heroku```
-<br>
-Оставаясь в терминал, зайдите через ```bash``` в ваш аккаунт на ```Heroku```:
-<br>
-```heroku login```
-<br>
-### Загрузка кода на сервер Heroku
-
-Загрузите с ```github``` ваш репозиторий на компьютер: 
-<br>
-```git clone https://github.com/djeck1432/dialog_flow_bot.git```
-<br>
-Откройте папку:
-<br>
-```cd dialog_flow_bot ```
-<br>
-Создайте приложения в ```Heroku``` :
-<br>
-```heroku create```
-<br>
-Загрузите ваш репозиторий на сервер ```Heroku```:
-<br>
-```git push heroku master```
-<br>
-
-### Настройка окружения и запуск сервера
-
-Перейдите по <a href='https://dashboard.heroku.com/apps'>ссылке</a>, выберите свое приложение и откройте его.
-<br>
-В меню навигации, перейдите на вкладку ```Settings```.
-<br>
-В разделе ```Config vars```, передайте ваши переменные окружения.
-<br>
-В терминале, выполните следующую команду для запуска кода на сервере:<br>
-```heroku ps:scale bot=1```
-<br>
-Поздравляю, теперь ваш ```Bot``` работает постоянно, вне зависимости, включен ваш компьютер или нет.
-<a name='env'></a>
-### Переменые окружения 
-
-```TELEGRAM_ACCESS_TOKEN``` - токен от вашего чат-бота в ```telegram```;<br>
-```TELEGRAM_LOG_BOT_TOKEN```-токен от бота, куда будут приходить ```loggs```;<br>
-```VK_ACCESS_TOKEN``` - токен от ```vkontakte```;<br>
-```GOOGLE_APPLICATION_CREDENTIALS``` - ключи доступа к ```Google``` сервисам.
-
-
-### Пример работы бота 
-1)Названия ```TelegramBot``` - ```@DevmanLesson3_bot```;
-<br>
-2)Как работает ```VkontakteBot``` <a href='https://vk.com/club190053871'>здесь</a>;
-<br>
-3)Чат бот с логами <a href='https://t.me/devman_log_bot'>здесь</a>;
-<br>
+### Bot example
 <img src='https://dvmn.org/filer/canonical/1569214094/323/'></img>
 
+<ol>
+ <li>Name of TelegramBot - @DevmanLesson3_bot;</li>
+ <li>How does it work VkontakteBot <a href='https://vk.com/club190053871'>here</a>;</li>
+ <li>Chatbot with logs <a href='https://t.me/devman_log_bot'>here</a>;</li> 
+</ol>
 
-### Как обучить бота 
+## Instruction for running code on the server
 
-1. Скачайте репозиторий на свой компьютер:<br>
-```git clone https://github.com/djeck1432/dialog_flow_bot.git```
-2. Откройте репозиторий: <br>
-```cd dialog_flow_bot```
-3. Установите все необходимые библиотеки:<br>
-```pip install -r requirements.txt```
-4. Создайте файл ```.env``` и задайте все переменные которые описаны <a href='#env'>здесь</a><br>
-5. Создайте файл ```file.json``` в формате ```json```.<br>
-6. Вставьте в созданный вами файл, обучающие фразы/слова ответов/вопросов.<br>
-7. Запустите команду:<br>
-```python3 add_intent.py```
+### Registration and installation of Heroku
+
+Sign up on this  <a href='https://signup.heroku.com/dc'>site</a>.
+<br>
+To work through the terminal install `CLI` for `Heroku`, to do this you should open `bash` on your computer and write in there next commands: 
+<br>
+For Linux  `Linux` -
+```
+sudo snap install heroku --classic
+```
+For `MacOs` - 
+```
+brew install heroku/brew/heroku
+```
+Staying in the terminal, log into your account on `Heroku` with `bash`:
+```heroku login```
+<br>
+### Download code on Heroku
+
+Download from `github` your repository to computer:
+```
+git clone https://github.com/djeck1432/dialog_flow_bot.git
+```
+Open the folder:
+```
+cd dialog_flow_bot
+```
+Create a new app on `Heroku` :
+```
+heroku create
+```
+Download your repository on the server `Heroku`:
+```
+git push heroku master
+```
+
+### Setting up the environment and starting the server
+
+Go to the <a href='https://dashboard.heroku.com/apps'>link</a>, choose your app and open it.
+
+In the navigation menu, go to the tab `Settings`.
+
+In chapter `Config vars`, pass your environment variables.
+
+In the terminal, do the next command for start code on the server:
+
+`heroku ps:scale bot=1`
+
+Congratulations, now your `Bot` is constantly working.
+
+<a name='env'></a>
+
+## Environment variables  
+
+`TELEGRAM_ACCESS_TOKEN` - token from your chatbot in `Telegram`;
+
+`TELEGRAM_LOG_BOT_TOKEN`- token from the bot, where they will come `logs`;
+
+`VK_ACCESS_TOKEN` - token from `Vkontakte`;
+
+`GOOGLE_APPLICATION_CREDENTIALS` - access keys to `Google` services.
+
+
+
+### How to train a bot
+
+1. Download the repository on your computer:
+```
+git clone https://github.com/djeck1432/dialog_flow_bot.git
+```
+2. Open the repository:
+```
+cd dialog_flow_bot
+```
+3. Install all the needed libraries:
+```
+pip install -r requirements.txt
+```
+4. Create a file `.env` and set all the variables that are described <a href='#env'>here</a><br>
+5. Create a file `file.json` in format `JSON`.<br>
+6. Insert into the file you created, training phrases/words of answers/questions.<br>
+7. Run code:<br>
+```
+python3 add_intent.py
+```
 
