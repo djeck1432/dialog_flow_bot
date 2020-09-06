@@ -20,21 +20,21 @@ def get_response(update, context):
 def main():
     load_dotenv()
     telegram_bot_token = os.getenv('TELEGRAM_ACCESS_TOKEN')
-    telegram_logs_token = os.getenv('TELEGRAM_LOG_BOT_TOKEN')
+    # telegram_logs_token = os.getenv('TELEGRAM_LOG_BOT_TOKEN')
     telegram_log_chat_id = os.getenv('TELEGRAM_LOG_BOT_CHAT_ID')
 
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                        level=logging.INFO)
-    logger.setLevel(logging.INFO)
-    logs.create_bot_handler(telegram_logs_token, telegram_log_chat_id)
+    # logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    #                     level=logging.INFO)
+    # logger.setLevel(logging.INFO)
+    # logs.create_bot_handler(telegram_logs_token, telegram_log_chat_id)
 
     updater = Updater(telegram_bot_token, use_context=True)
-    logger.info('Start telegram_bot')
+    # logger.info('Start telegram_bot')
     updater.dispatcher.add_handler(MessageHandler(Filters.text, get_response))
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.start_polling()
     updater.idle()
-    logger.info('Telegram bot was down')
+    # logger.info('Telegram bot was down')
 
 
 if __name__ == '__main__':
