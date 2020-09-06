@@ -1,7 +1,8 @@
 # Chat-bots for Telegram and Vkontakte
  These bots will simplify customer service by answering frequently asked questions. 
  Support service can breath a little easier now
- [link](https:/t.me/dialogflow_example_bot)
+ <br>
+ [link](https://t.me/dialogflow_example_bot)
  
 
 ### Bot example
